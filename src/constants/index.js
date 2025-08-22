@@ -46,10 +46,7 @@ const techStackImgs = [
     name: "Interactive Developer",
     imgPath: "/images/logos/three.png",
   },
-  {
-    name: "Project Manager",
-    imgPath: "/images/logos/git.svg",
-  },
+
 ];
 
 const techStackIcons = [
@@ -77,12 +74,7 @@ const techStackIcons = [
     scale: 0.05,
     rotation: [0, 0, 0],
   },
-  {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
-  },
+
 ];
 
 
