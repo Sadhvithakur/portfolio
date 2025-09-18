@@ -86,7 +86,7 @@ const techStackIcons = [
 const socialImgs = [
   {
     name: "github",
-    imgPath: "/images/logos/git.svg",
+    imgPath: "/images/git.png",
     link: "https://github.com/Sadhvithakur",
   },
   {
