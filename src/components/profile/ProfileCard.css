@@ -388,34 +388,74 @@
 /* Responsive styles */
 @media (max-width: 768px) {
     .pc-card {
-        height: 40svh;
-        max-height: 280px;
+        height: auto;
+        aspect-ratio: 0.8;
+        max-height: none;
     }
 
     .pc-details h3 {
-        font-size: min(4svh, 2.5em);
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-top: 1rem;
+    }
+
+    .pc-details p {
+        font-size: clamp(0.875rem, 3vw, 1rem);
     }
 
     .pc-user-info {
         bottom: 15px;
         left: 15px;
         right: 15px;
-        padding: 10px 12px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .pc-mini-avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .pc-handle {
+        font-size: 12px;
+    }
+
+    .pc-status {
+        font-size: 10px;
+    }
+
+    .pc-contact-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        min-width: 90px;
     }
 }
 
 @media (max-width: 480px) {
     .pc-card {
-        height: 35svh;
-        max-height: 260px;
+        aspect-ratio: 0.85;
     }
 
     .pc-details h3 {
-        font-size: min(3.5svh, 2em);
+        font-size: clamp(1.25rem, 3.5vw, 1.5rem);
     }
 
     .pc-user-info {
         bottom: 12px;
-        border-radius: 50px;
+        left: 12px;
+        right: 12px;
+        border-radius: 12px;
+        padding: 6px 10px;
+    }
+
+    .pc-mini-avatar {
+        width: 24px;
+        height: 24px;
+    }
+
+    .pc-contact-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+        min-width: 80px;
+        border-radius: 8px;
     }
 }

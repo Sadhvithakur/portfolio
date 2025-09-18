@@ -166,7 +166,7 @@ section {
     @apply fixed w-full left-1/2 py-5 px-5 md:px-20 -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out;
 
     &.scrolled {
-      @apply top-0 bg-black;
+      @apply top-0 bg-black/95 backdrop-blur-lg;
     }
 
     &.not-scrolled {
@@ -179,6 +179,29 @@ section {
 
     .logo {
       @apply text-white-50 text-xl md:text-2xl font-semibold transition-transform duration-300 hover:scale-105;
+    }
+
+    .mobile-menu-btn {
+      @apply relative z-50;
+
+      span {
+        @apply transition-all duration-300 ease-in-out origin-center;
+      }
+    }
+
+    .mobile-menu {
+      ul li a {
+        @apply relative inline-block;
+
+        &::after {
+          content: '';
+          @apply absolute left-0 bottom-0 w-0 h-0.5 bg-purple-400 transition-all duration-300;
+        }
+
+        &:hover::after {
+          @apply w-full;
+        }
+      }
     }
 
     nav.desktop {
