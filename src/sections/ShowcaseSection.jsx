@@ -11,6 +11,18 @@ const AppShowcase = () => {
   const libraryRef = useRef(null);
   const ycDirectoryRef = useRef(null);
 
+  // Project URLs
+  const projectLinks = {
+    multipleDisease: "https://github.com/Sadhvithakur/Multiple-Disease-Prediction.git",
+    signLanguage: "https://github.com/Sadhvithakur/Sign-language-Translator.git",
+    airPiano: "https://github.com/Sadhvithakur/Air_piano.git"
+  };
+
+  // Handle project click
+  const handleProjectClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   useGSAP(() => {
     // Animation for the main section
     gsap.fromTo(
@@ -46,39 +58,65 @@ const AppShowcase = () => {
   return (
     <div id="work" ref={sectionRef} className="app-showcase">
       <div className="w-full">
+        {/* Projects Heading */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+            {'My Projects'.split('').map((char, i) => (
+              <span
+                key={i}
+                className="decrypt-text"
+                style={{ '--delay': `${i * 0.2}s` }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </h1>
+          <p className="text-white-50 text-lg md:text-xl max-w-2xl mx-auto">
+            Explore my latest work and creative solutions
+          </p>
+        </div>
+
         <div className="showcaselayout">
           <div ref={rydeRef} className="first-project-wrapper">
-            <div className="image-wrapper">
-              <img src="/images/project1.png" alt="Ryde App Interface" />
+            <div
+              className="image-wrapper cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={() => handleProjectClick(projectLinks.multipleDisease)}
+            >
+              <img src="/images/multi.png" alt="Multiple Disease Prediction " />
             </div>
             <div className="text-content">
               <h2>
-                On-Demand Rides Made Simple with a Powerful, User-Friendly App
-                called Ryde
+                Predict. Prevent. Protect. All with Multiple Disease Prediction
               </h2>
               <p className="text-white-50 md:text-xl">
-                An app built with React Native, Expo, & TailwindCSS for a fast,
-                user-friendly experience.
+                Multiple Disease Prediction is a Python-based system that analyzes
+                health data to predict the risk of various diseases.
               </p>
             </div>
           </div>
 
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={libraryRef}>
-              <div className="image-wrapper bg-[#FFEFDB]">
+              <div
+                className="image-wrapper bg-[#FFEFDB] cursor-pointer hover:scale-105 transition-transform duration-300"
+                onClick={() => handleProjectClick(projectLinks.signLanguage)}
+              >
                 <img
-                  src="/images/project2.png"
-                  alt="Library Management Platform"
+                  src="/images/signlang.png"
+                  alt="Sign Language Translator Platform"
                 />
               </div>
-              <h2>The Library Management Platform</h2>
+              <h2>Sign Language Translator Platform</h2>
             </div>
 
             <div className="project" ref={ycDirectoryRef}>
-              <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="YC Directory App" />
+              <div
+                className="image-wrapper bg-[#FFE7EB] cursor-pointer hover:scale-105 transition-transform duration-300"
+                onClick={() => handleProjectClick(projectLinks.airPiano)}
+              >
+                <img src="/images/air.png" alt="Air Piano" />
               </div>
-              <h2>YC Directory - A Startup Showcase App</h2>
+              <h2>Air Piano</h2>
             </div>
           </div>
         </div>

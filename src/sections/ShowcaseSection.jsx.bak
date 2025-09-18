@@ -1,0 +1,120 @@
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const AppShowcase = () => {
+  const sectionRef = useRef(null);
+  const rydeRef = useRef(null);
+  const libraryRef = useRef(null);
+  const ycDirectoryRef = useRef(null);
+
+  // Project URLs
+  const projectLinks = {
+    multipleDisease: "https://github.com/Sadhvithakur/Multiple-Disease-Prediction.git",
+    signLanguage: "https://github.com/Sadhvithakur/Sign-language-Translator.git",
+    airPiano: "https://github.com/Sadhvithakur/Air_piano.git"
+  };
+
+  // Handle project click
+  const handleProjectClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  useGSAP(() => {
+    // Animation for the main section
+    gsap.fromTo(
+      sectionRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1.5 }
+    );
+
+    // Animations for each app showcase
+    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
+
+    cards.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          delay: 0.3 * (index + 1),
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom-=100",
+          },
+        }
+      );
+    });
+  }, []);
+
+  return (
+    <div id="work" ref={sectionRef} className="app-showcase">
+      <div className="w-full">
+        {/* Projects Heading */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+            My Projects
+          </h1>
+          <p className="text-white-50 text-lg md:text-xl max-w-2xl mx-auto">
+            Explore my latest work and creative solutions
+          </p>
+        </div>
+
+        <div className="showcaselayout">
+          <div ref={rydeRef} className="first-project-wrapper">
+            <div
+              className="image-wrapper cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={() => handleProjectClick(projectLinks.multipleDisease)}
+            >
+              <img src="/images/multi.png" alt="Multiple Disease Prediction " />
+            </div>
+            <div className="text-content">
+              <h2>
+                Predict. Prevent. Protect. All with Multiple Disease Prediction
+              </h2>
+              <p className="text-white-50 md:text-xl">
+                Multiple Disease Prediction is a Python-based system that analyzes
+                health data to predict the risk of various diseases.
+              </p>
+            </div>
+          </div>
+
+          <div className="project-list-wrapper overflow-hidden">
+            <div className="project" ref={libraryRef}>
+              <div
+                className="image-wrapper bg-[#FFEFDB] cursor-pointer hover:scale-105 transition-transform duration-300"
+                onClick={() => handleProjectClick(projectLinks.signLanguage)}
+              >
+                <img
+                  src="/images/signlang.png"
+                  alt="Sign Language Translator Platform"
+                />
+              </div>
+              <h2>Sign Language Translator Platform</h2>
+            </div>
+
+            <div className="project" ref={ycDirectoryRef}>
+              <div
+                className="image-wrapper bg-[#FFE7EB] cursor-pointer hover:scale-105 transition-transform duration-300"
+                onClick={() => handleProjectClick(projectLinks.airPiano)}
+              >
+                <img src="/images/air.png" alt="Air Piano" />
+              </div>
+              <h2>Air Piano</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AppShowcase;
