@@ -18,11 +18,14 @@ const HeroExperience = () => {
       {/* Configure OrbitControls to disable panning and control zoom based on device type */}
       <OrbitControls
         enablePan={false} // Prevents panning of the scene
-        enableZoom={!isTablet} // Disables zoom on tablets
+        enableZoom={false} // Disable zoom completely
         maxDistance={20} // Maximum distance for zooming out
         minDistance={5} // Minimum distance for zooming in
-        minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
+        minPolarAngle={Math.PI / 3} // Restrict vertical rotation more
         maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
+        enableDamping={true} // Add smooth damping to movements
+        dampingFactor={0.05} // Make movements more smooth
+        rotateSpeed={0.5} // Slow down rotation speed
       />
 
       <Suspense fallback={null}>
