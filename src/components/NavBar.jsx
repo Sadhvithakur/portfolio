@@ -59,29 +59,29 @@ const NavBar = () => {
         </button>
 
         {/* Mobile Navigation */}
-        <div className={`mobile-menu fixed inset-0 bg-black/95 backdrop-blur-lg z-50 transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+        <div className={`mobile-menu fixed inset-0 bg-black/60 backdrop-blur-md z-50 transition-all duration-300 ${isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'} md:hidden`}>
           <div className="flex flex-col h-full">
-            <div className="flex justify-between items-center p-4 border-b border-white/10">
-              <a href="#hero" className="logo" onClick={closeMenu}>
+            <div className="flex justify-between items-center p-4 border-b border-white/20 bg-black/40 backdrop-blur-lg">
+              <a href="#hero" className="logo text-white/90" onClick={closeMenu}>
                 Sadhvi Thakur
               </a>
               <button
-                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                className="p-2 rounded-lg hover:bg-white/20 transition-colors"
                 onClick={closeMenu}
                 aria-label="Close menu"
               >
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-            <nav className="flex-1 flex items-center justify-center">
-              <ul className="flex flex-col items-center gap-8 text-xl">
+            <nav className="flex-1 flex items-center justify-center bg-gradient-to-b from-black/40 to-black/60 backdrop-blur-md">
+              <ul className="flex flex-col items-center gap-8 text-xl bg-black/20 py-8 px-6 rounded-2xl backdrop-blur-lg shadow-xl border border-white/10">
                 {navLinks.map(({ link, name }) => (
                   <li key={name}>
                     <a
                       href={link}
-                      className="text-white hover:text-purple-400 transition-colors py-2"
+                      className="text-white/90 hover:text-purple-400 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
                       onClick={closeMenu}
                     >
                       {name}
@@ -91,7 +91,7 @@ const NavBar = () => {
                 <li>
                   <a
                     href="#contact"
-                    className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors"
+                    className="inline-flex items-center px-6 py-3 bg-purple-600/90 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all hover:scale-105 shadow-lg shadow-purple-500/20"
                     onClick={closeMenu}
                   >
                     Contact me
