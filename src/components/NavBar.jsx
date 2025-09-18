@@ -76,14 +76,14 @@ const NavBar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="mobile-menu-btn md:hidden p-3 rounded-xl bg-black/40 hover:bg-black/60 transition-all"
+          className="mobile-menu-btn md:hidden p-3 rounded-xl bg-black hover:bg-black/80 transition-all"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
           <div className="w-5 h-4 relative flex flex-col justify-between">
-            <span className="block w-full h-[2px] bg-white shadow-lg" />
-            <span className="block w-full h-[2px] bg-white shadow-lg" />
-            <span className="block w-full h-[2px] bg-white shadow-lg" />
+            <span className={`block w-full h-[2px] bg-white shadow-lg transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+            <span className={`block w-full h-[2px] bg-white shadow-lg transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0 translate-x-3' : ''}`} />
+            <span className={`block w-full h-[2px] bg-white shadow-lg transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
           </div>
         </button>
 
@@ -93,7 +93,7 @@ const NavBar = () => {
           onClick={closeMenu}
         >
           {/* Backdrop - clicking this will close the menu */}
-          <div className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`} />
+          <div className={`absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`} />
 
           {/* Menu Content */}
           <div
